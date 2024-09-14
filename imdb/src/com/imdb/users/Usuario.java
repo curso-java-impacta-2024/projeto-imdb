@@ -1,6 +1,6 @@
 package com.imdb.users;
 
-public class Usuario {
+public class Usuario extends Pessoa{
 	private String acesso;
 	
 	public Usuario() {
