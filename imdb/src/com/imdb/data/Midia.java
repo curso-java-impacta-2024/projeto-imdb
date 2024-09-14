@@ -5,9 +5,12 @@ public class Midia {
 	private String titulo;
 	private int ano;
 	private double nota;
+			
+	public Midia() {
+		
+	}
 	
-	public Midia() {}
-
+	
 	public String getTitulo() {
 		return titulo;
 	}
