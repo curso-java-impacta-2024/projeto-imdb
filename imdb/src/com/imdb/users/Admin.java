@@ -1,6 +1,6 @@
 package com.imdb.users;
 
-public class Admin {
+public class Admin extends Pessoa {
 	
 	private String credencial;
 
