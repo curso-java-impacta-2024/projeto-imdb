@@ -7,8 +7,12 @@ public class Midia {
 		private int ano;
 		private double nota;
 		
-		public Midia() {}
-
+		
+		public Midia() {
+			
+		}
+		
+		
 		public String getTitulo() {
 			return titulo;
 		}
