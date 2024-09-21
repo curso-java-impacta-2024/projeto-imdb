@@ -119,7 +119,8 @@ public class Teste {
 		//
 		// System.out.println("O resultado da soma foi :" + resultado);
 		//
-		CadastroDAO cdao = new CadastroDAO();
+		CadastroDAO cdao = new CadastroDAO(null);
+		Cadastro cad = new Cadastro();
 		// Executando o metodo select e retornando a lista de casdastro.
 //		List<Cadastro> bancoLista = cdao.select();
 
@@ -133,5 +134,11 @@ public class Teste {
 //			System.out.println("***********************");
 //
 //		}
+		cad = cdao.select(2);
+		if(cad != null) {
+			System.out.println(cad.getFilme().getTitulo());
+		}else {
+			System.out.println("Resgistro não encontrado !");
+		}
 	}
 }

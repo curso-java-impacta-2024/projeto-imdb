@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.imdb.data.Cadastro;
 import com.imdb.data.dao.CadastroDAO;
 
+@SuppressWarnings("unused")
 public class Manipulacao {
 
 	public Manipulacao() {
@@ -18,7 +19,7 @@ public class Manipulacao {
 
 		boolean key = true;
 		int opt = 0;
-		CadastroDAO cdao;
+		CadastroDAO cdao = null;
 
 		while (key) {
 			System.out.println("BEM VINDO AO SISTEMA DE GERENCIAMENTO");
@@ -33,7 +34,23 @@ public class Manipulacao {
 
 			switch (opt) {
 			case 1:
-				cdao = new CadastroDAO();
+				cdao = new CadastroDAO(cdao);
+				cdao.select();
+				break;
+			case 4:
+				cdao = new CadastroDAO(cdao);
+				cdao.select();
+				System.out.println("\nSELECIONE UM DOS ITENS ACIMA PARA EXCLUSÃO!");
+				opt = Integer.parseInt(scan.next());
+				if(cdao.delete(opt)){
+					System.out.println("\nItem excluido com SUCESSO!");
+				}else {
+					System.out.println("\nOcorreu um erro durante o processo de exclusão!");
+				}
+				break;
+				default:
+					key = false;
+					System.out.println("Obrigado por utilizar o nosso serviço");
 				
 
 			}

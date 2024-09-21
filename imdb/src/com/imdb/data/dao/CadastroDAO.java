@@ -12,7 +12,7 @@ public class CadastroDAO {
 
 	public static List<Cadastro> banco = null;
 
-	public CadastroDAO() {
+	public CadastroDAO(Object object) {
 		if (banco == null) {
 
 			banco = new ArrayList<Cadastro>();
@@ -23,8 +23,7 @@ public class CadastroDAO {
 			Filme filme = new Filme();
 			// Serie serie = new Serie();
 
-
-			//criando Admin
+			// criando Admin
 			admin.setNome("Mari");
 			admin.setEmail("mari@mari.com");
 			admin.setId(1);
@@ -33,7 +32,7 @@ public class CadastroDAO {
 			cadastro.setAdmin(admin);
 			cadastro.setId(123);
 
-			//criando Filme
+			// criando Filme
 			filme.setTitulo("Titanic");
 			filme.setAno(1997);
 			filme.setBilheteria(10000000);
@@ -42,7 +41,7 @@ public class CadastroDAO {
 			filme.setId(1);
 			cadastro.setFilme(filme);
 
-			//criando Serie
+			// criando Serie
 			serie.setTitulo("The Big Bang Theory");
 			serie.setAno(2019);
 			serie.setTemporada(12);
@@ -50,13 +49,14 @@ public class CadastroDAO {
 			serie.setId(2);
 			cadastro.setSerie(serie);
 
-			//adicionando  cadastro na lista
+			// adicionando cadastro na lista
 			Serie serie2 = new Serie();
 			Filme filme2 = new Filme();
+			Cadastro cadastro2 = null;
 			cadastro2.setAdmin(admin);
 			cadastro2.setId(456);
 
-			//criando Filme
+			// criando Filme
 			filme2.setTitulo("Bastardos Inglorios");
 			filme2.setAno(2009);
 			filme2.setBilheteria(10000000);
@@ -65,7 +65,7 @@ public class CadastroDAO {
 			filme2.setId(3);
 			cadastro2.setFilme(filme2);
 
-			//criando Serie
+			// criando Serie
 			serie2.setTitulo("Game of Thrones");
 			serie2.setAno(2011);
 			serie2.setTemporada(8);
@@ -73,14 +73,14 @@ public class CadastroDAO {
 			serie2.setId(4);
 			cadastro2.setSerie(serie2);
 
-			//adicionando  cadastro na lista
+			// adicionando cadastro na lista
 			Serie serie3 = new Serie();
 			Filme filme3 = new Filme();
+			Cadastro cadastro3 = null;
 			cadastro3.setAdmin(admin);
 			cadastro3.setId(789);
-			
 
-			//criando Filme
+			// criando Filme
 			filme3.setTitulo("A Lista de Schindler");
 			filme3.setAno(1993);
 			filme3.setBilheteria(10000000);
@@ -89,7 +89,7 @@ public class CadastroDAO {
 			filme3.setId(5);
 			cadastro3.setFilme(filme3);
 
-			//criando Serie
+			// criando Serie
 			serie3.setTitulo("Dexter");
 			serie3.setAno(2006);
 			serie3.setTemporada(8);
@@ -97,31 +97,46 @@ public class CadastroDAO {
 			serie3.setId(6);
 			cadastro3.setSerie(serie3);
 
-			//adicionando  cadastro na lista
+			// adicionando cadastro na lista
 			System.out.println("************************************************");
 		}
 	}
-//	public Cadastro select(int id) {
-//		
-//	}
+	// public Cadastro select(int id) {
+	//
+	// }
 
-
+	public void CadastroDAO1() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public void select() {
 
 		for (Cadastro cadastro : banco) {
-			System.out.println("***********************");
+			System.out.println("\n********* Item: [ " + cadastro.getId() + " ]***********");
 			System.out.println("NOME DO ADMIN : " + cadastro.getAdmin().getNome());
 			System.out.println("NOME DO FILME : " + cadastro.getFilme().getTitulo());
 			System.out.println("NOME DO FILME : " + cadastro.getFilme().getNota());
 			System.out.println("NOME DO SÈRIE : " + cadastro.getSerie().getTitulo());
 			System.out.println("NOME DO SÈRIE : " + cadastro.getSerie().getNota());
-			System.out.println("***********************");
+			System.out.println("***********************\n");
 
 		}
 	}
-	public Cadastro select() {
-		
+
+	public Cadastro select(int id) {
+
+		for (int x = 0; x < banco.size(); x++) {
+			if (banco.get(x).getId() == id) {
+				return banco.get(x);
+			}
+		}
+		return null;
 	}
 
+	public boolean delete(int id) {
+		if(banco.remove(select(id))){
+			return true;
+		}
+		return false;
+	}
 }
