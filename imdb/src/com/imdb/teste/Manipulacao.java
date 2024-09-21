@@ -38,10 +38,32 @@ public class Manipulacao {
 			case 1:
 				cdao = new CadastroDAO();
 				cdao.select();
+				break;
+				
+			case 4:
+				cdao = new CadastroDAO();
+				cdao.select();
+				System.out.println("\n SELECIONE UM DOS ITENS ACIMA PARA EXCLUSÃO");
+				opt = Integer.parseInt(scan.next());
+				
+				  if(cdao.delete(opt)){
+					System.out.println("\nItem excluido com SUCESSO! ");
+				} else {
+					
+					System.out.println("\nOcorreu um erro durante o processo de exclusão!");
+					
+				};
+				break;
+				
+			default:
+				key = false;
+				System.out.println("\nObrigado por utilizar nossos serviços");
+				
 				
 			}
 			
-			
+		
+				
 		}
 		
 		
@@ -49,8 +71,7 @@ public class Manipulacao {
 		
 		scan.close();
 		
-		
-		
+	
 
 	}
 

@@ -47,6 +47,7 @@ public class CadastroDAO {
 			filme.setNota(10);
 			filme.setTitulo("DeadPool e Wolwerine");
 			cadastro.setFilme(filme);
+			cadastro.setId(1);
 
 			
 			serie = new Serie();
@@ -58,6 +59,7 @@ public class CadastroDAO {
 			serie.setNota(10);
 			serie.setTitulo("Cobra Kai");
 			cadastro.setSerie(serie);
+			cadastro.setId(1);
 
 			// Adicionando o cadastro na lista
 
@@ -149,13 +151,13 @@ public class CadastroDAO {
 		 
 		 for (Cadastro cadastro : banco ) {
 
-				System.out.println("******************************************");
+				System.out.println("\n**********Item:["+ cadastro.getId() + "]**********");
 				System.out.println("Nome do admin: " + cadastro.getAdmin().getNome());
 				System.out.println("Nome do filme" + cadastro.getFilme().getTitulo());
 				System.out.println("Nota do filme" + cadastro.getFilme().getNota());
 				System.out.println("Nome da serie" + cadastro.getFilme().getTitulo());
 				System.out.println("Nota da serie" + cadastro.getFilme().getNota());
-				System.out.println("******************************************");
+				System.out.println("*********************\n");
 				
 			 
 			 
@@ -165,15 +167,34 @@ public class CadastroDAO {
 		
 	 }
 	 
-	 public Cadastro select() {
+	 public Cadastro select(int id) {
 		 
+		 for(int x = 0 ; x < banco.size(); x++) {
+			 if (banco.get(x).getId() == id) {
+				 
+				 return banco.get(x);
+				 
+			 }
+		 }
 		 
+		 return null;
+		
 		 
+	 }
+	 
+	 public boolean delete(int id) {
 		 
+		 if(banco.remove(select(id))) {
+			 
+			 return true;
+			 
+		 }
+		 
+		 return false;
 		 
 	 }
 	 
 	 	
-	}
+}
 
 

@@ -99,6 +99,7 @@ public class Teste {
 		
 		
 		CadastroDAO cdao = new CadastroDAO();
+		Cadastro cad = new Cadastro();
 		
 		// Executando o m´w
 		/*List<Cadastro> bancoLista = cdao.select();
@@ -117,8 +118,20 @@ public class Teste {
 			
 		}*/
 		
-		cdao.select();
+		//cdao.select();
 		
+		
+		cad = cdao.select(3);
+		
+		if(cad != null ) {
+			
+			System.out.println(cad.getFilme().getTitulo());
+			
+		} else {
+			
+			System.out.println("Registro não encontrado!");
+			
+		}
 		
 		
 	}
