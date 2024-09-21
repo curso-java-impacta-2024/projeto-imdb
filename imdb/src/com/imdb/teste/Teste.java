@@ -106,9 +106,17 @@ public class Teste {
 //		System.out.println("O resultado da soma foi: " + resultado);;
 		
 		CadastroDAO cdao = new CadastroDAO();
-		
+		Cadastro cad = new Cadastro();
 		//EXECUTANDO O METODO SELECT E RETORNANDO A LISTA DE CADASTRO
-		cdao.select();
+//		cdao.select();
+		
+		cad = cdao.select(2);
+		
+		if (cad != null) {
+			System.out.println(cad.getFilme().getTitulo());
+		} else {
+			System.out.println("Registro não encontrado!");
+		}
 
 	}
 

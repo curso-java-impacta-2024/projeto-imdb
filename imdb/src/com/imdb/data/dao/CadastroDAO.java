@@ -53,6 +53,8 @@ public class CadastroDAO {
 			// Adicionando o cadastro na lista
 			banco.add(cadastro);
 
+			//=====================================
+			
 			// NOVOS CADASTROs - CADASTRO 2
 			cadastro = new Cadastro();
 
@@ -83,6 +85,9 @@ public class CadastroDAO {
 
 			banco.add(cadastro);
 
+			
+			//=====================================
+			
 			// NOVOS CADASTRO - CADASTRO 3
 			cadastro = new Cadastro();
 			admin.setCredencial("A");
@@ -117,22 +122,35 @@ public class CadastroDAO {
 
 	// BUSCA DA LISTA DOS DADOS CADASTRO NO BANCO
 	public void select() {
-		
-		for (Cadastro cadastro: banco) {
-			
-			System.out.println("**********************************************");
+
+		for (Cadastro cadastro : banco) {
+
+			System.out.println("\n*********** Item:[ "+ cadastro.getId() +" ]***********");
 			System.out.println("NOME DO ADMIN: " + cadastro.getAdmin().getNome());
 			System.out.println("NOME DO FILME: " + cadastro.getFilme().getTitulo());
 			System.out.println("NOTA DO FILME: " + cadastro.getFilme().getNota());
 			System.out.println("NOME DA SERIE: " + cadastro.getSerie().getTitulo());
 			System.out.println("NOTA DA SERIE: " + cadastro.getSerie().getNota());
-			System.out.println("**********************************************");
-		
+			System.out.println("*********************************\n");
+
 		}
 	}
+
+	public Cadastro select(int id) {
+
+		for (int x = 0; x < banco.size(); x++) {
+			if (banco.get(x).getId() == id)
+				return banco.get(x);
+		}
+		return null;
+	}
 	
-	public Cadastro select() {
+	public boolean delete(int id) {
+		if(banco.remove(select(id))){
+			return true;
+		}
 		
+		return false;
 	}
 
 }

@@ -15,12 +15,12 @@ public class Manipulacao {
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
-		
+
 		boolean key = true;
 		int opt = 0;
 		CadastroDAO cdao;
-		
-		while(key) {
+
+		while (key) {
 			System.out.println("BEM VINDO AO SISTEMA DE GERENCIAMENTO");
 			System.out.println("\nEscolha uma das opções abaixo: ");
 			System.out.println("\n1 - Listar Dados: ");
@@ -28,23 +28,36 @@ public class Manipulacao {
 			System.out.println("\n3 - Atualizar: ");
 			System.out.println("\n4 - Excluir: ");
 			System.out.println("\n5 - Sair: ");
-			
+
 			opt = Integer.parseInt(scan.next());
-			
-			switch(opt) {
-			
+
+			switch (opt) {
+
 			case 1:
 				cdao = new CadastroDAO();
 				cdao.select();
+				break;
+			// case 2:
+			// case 3:
+			case 4:
+				cdao = new CadastroDAO();
+				cdao.select();
+				System.out.println("\nSELECIONE UM DOS ITENS ACIMA PARA EXCLUSÃO");
+				opt = Integer.parseInt(scan.next());
+
+				if (cdao.delete(opt)) {
+					System.out.println("\nItem excluído com sucesso");
+				} else {
+					System.out.println("\nOcorreu um erro durante o processo de exclusão");
+				}
+				break;
+			default:
 				key = false;
-//			case 2:
-//			case 3:
-//			case 4:
-				
+				System.out.println("\n Obrigado por utilizar nossos serviços");
 			}
-			
+
 		}
-		
+
 		scan.close();
 
 	}
