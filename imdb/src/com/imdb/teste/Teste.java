@@ -8,6 +8,7 @@ import java.util.Scanner;
 import com.imdb.data.Cadastro;
 import com.imdb.data.Filme;
 import com.imdb.data.Serie;
+import com.imdb.data.dao.CadastroDAO;
 import com.imdb.users.Admin;
 
 public class Teste {
@@ -77,31 +78,21 @@ public class Teste {
 //			//System.out.println("Nome do admin cadastrado: " + cadastro2.getAdmin().getNome());
 //		}
 //		
-		Scanner scan = new Scanner(System.in);
+
 		
-		int nr1 = 0;
-		int nr2 = 0;
-		int nr3 = 0;
-		int nr4 = 0;
+		//CadastroDAO cdao = new CadastroDAO();
+		//executando o metodo select para simular consulta Database
+		//List<Cadastro> bancoLista = cdao.select();
 		
-		try {
-			System.out.println("Digite o valor do primeiro número");
-			nr1 = scan.nextInt();
-			System.out.println("Digite o valor do segundo número");
-			nr2 = scan.nextInt();
-		} catch(InputMismatchException e) {
-			
-			System.out.println("Somente números podem ser digitados");
-			System.out.println("Digite o valor do primeiro número");
-			nr3 = scan.nextInt();
-			System.out.println("Digite o valor do segundo número");
-			nr4 = scan.nextInt();
-		}
-		
-			int resultado = nr1 + nr2;
-			System.out.println("O resultado da soma dos dois números foi: " + resultado);
+		//varrendo a lista e exibindo as infos 
+//		for(Cadastro cadastro : bancoLista) {
+//			System.out.println("nome do admin: " + cadastro.getAdmin().getNome());
+//			System.out.println("nome do filme: " + cadastro.getFilme().getTitulo());
+//			System.out.println("nota da filme: " + cadastro.getFilme().getNota());
+//			System.out.println("nome do serie: " + cadastro.getSerie().getTitulo());
+//			System.out.println("************************************************");
+//		}
 	
-		
 	
 	}
 

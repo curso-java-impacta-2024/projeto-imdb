@@ -7,6 +7,8 @@ public class Cadastro {
 	private Serie serie;
 	private Filme filme;
 	
+	
+
 	public Admin getAdmin() {
 		return admin;
 	}
