@@ -14,7 +14,6 @@ public class Manipulacao {
 		int opt = 0;
 		CadastroDAO cdao;
 		
-		
 		while(key) {
 		System.out.println("Bem vindo ao sistema de Gerenciamento");
 		System.out.println("\nSelecione uma das opções abaixo");
@@ -30,15 +29,27 @@ public class Manipulacao {
 		case 1: 
 			cdao = new CadastroDAO();
 			cdao.select();
-			key = false;
-		case 2:
+			break;
+		case 4:
+			cdao = new CadastroDAO();
+			cdao.select();
+			System.out.println("\nSelecione um item para excluir");
+			opt = Integer.parseInt(scan.next());
 			
+			if(cdao.delete(opt)) {
+				System.out.println("\nItem excluído");
+			}else {
+				System.out.println("\nOcorreu um erro durante o processo");
+			}
+			break;
+		default:
+			key = false;
+			System.out.println("Obrigado por utilizar nossos serviços!");
 		}
 	
 		
-		scan.close();
 	}
 		
-		
+	scan.close();		
   }
 }

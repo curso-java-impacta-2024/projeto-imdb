@@ -93,7 +93,16 @@ public class Teste {
 //			System.out.println("************************************************");
 //		}
 	
-	
+		CadastroDAO cdao = new CadastroDAO();
+		Cadastro cad = new Cadastro();
+		
+		cad = cdao.select(4);
+		
+		if(cad != null) {
+			System.out.println(cad.getFilme().getTitulo());
+		}else {
+			System.out.println("Registro não encontrado.");	
+		}
 	}
 
 }
