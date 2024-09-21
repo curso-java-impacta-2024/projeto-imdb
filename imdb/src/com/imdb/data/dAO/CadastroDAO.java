@@ -38,7 +38,9 @@ public class CadastroDAO {
 
 			
 			filme = new Filme();
+			
 			// Criando o filme
+			filme.setId(1);
 			filme.setAno(2024);
 			filme.setBilheteria(10000);
 			filme.setDuracao(3.50D);
@@ -49,6 +51,7 @@ public class CadastroDAO {
 			
 			serie = new Serie();
 			// Criando a série
+			serie.setId(1);
 			serie.setAno(2022);
 			serie.setTemporada(6);
 			serie.setEpisodios(65);
@@ -64,6 +67,7 @@ public class CadastroDAO {
 
 			cadastro = new Cadastro();
 			// Criando o Administrador
+			
 			admin = new Admin();
 			admin.setCredencial("A");
 			admin.setNome("Gisele");
@@ -74,23 +78,28 @@ public class CadastroDAO {
 			filme = new Filme();
 
 			// Criando o filme
+			filme.setId(2);
 			filme.setAno(2024);
 			filme.setBilheteria(10000);
 			filme.setDuracao(3.50D);
 			filme.setNota(10);
 			filme.setTitulo("Batman");
 			cadastro.setFilme(filme);
-
+			cadastro.setId(2);
+			
 			serie = new Serie();
 
 			// Criando a série
+			serie.setId(2);
 			serie.setAno(2022);
 			serie.setTemporada(3);
 			serie.setEpisodios(65);
 			serie.setNota(5);
 			serie.setTitulo("Street food");
 			cadastro.setSerie(serie);
-
+			cadastro.setId(2);
+			
+			
 			banco.add(cadastro);
 
 			// =======================================================
@@ -106,22 +115,26 @@ public class CadastroDAO {
 
 			filme = new Filme();
 			// Criando o filme
+			filme.setId(3);
 			filme.setAno(2023);
 			filme.setBilheteria(10000);
 			filme.setDuracao(3.50D);
 			filme.setNota(10);
 			filme.setTitulo("Vingadores");
 			cadastro.setFilme(filme);
+			cadastro.setId(3);
 
 			
 			serie = new Serie();
 			// Criando a série
+			serie.setId(3);
 			serie.setAno(2022);
 			serie.setTemporada(3);
 			serie.setEpisodios(65);
 			serie.setNota(8.5);
 			serie.setTitulo("CSI");
 			cadastro.setSerie(serie);
+			cadastro.setId(3);
 
 			banco.add(cadastro);
 
@@ -131,20 +144,36 @@ public class CadastroDAO {
 
 	 Cadastro cadastro =  new Cadastro();
 	
-	public List<Cadastro> select() {
-		
-		System.out.println("******************************************");
-		System.out.println("Nome do admin: " + cadastro.getAdmin().getNome());
-		System.out.println("Nome do filme" + cadastro.getFilme().getTitulo());
-		System.out.println("Nota do filme" + cadastro.getFilme().getNota());
-		System.out.println("Nome da serie" + cadastro.getFilme().getTitulo());
-		System.out.println("Nota da serie" + cadastro.getFilme().getNota());
-		System.out.println("******************************************");
-		
-		
-	
-		return banco;
+	 public void select() {
+		 
+		 
+		 for (Cadastro cadastro : banco ) {
 
+				System.out.println("******************************************");
+				System.out.println("Nome do admin: " + cadastro.getAdmin().getNome());
+				System.out.println("Nome do filme" + cadastro.getFilme().getTitulo());
+				System.out.println("Nota do filme" + cadastro.getFilme().getNota());
+				System.out.println("Nome da serie" + cadastro.getFilme().getTitulo());
+				System.out.println("Nota da serie" + cadastro.getFilme().getNota());
+				System.out.println("******************************************");
+				
+			 
+			 
+			 
+		 }
+		 
+		
+	 }
+	 
+	 public Cadastro select() {
+		 
+		 
+		 
+		 
+		 
+	 }
+	 
+	 	
 	}
 
-}
+
