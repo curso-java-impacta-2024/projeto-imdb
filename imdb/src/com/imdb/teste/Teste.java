@@ -103,10 +103,18 @@ public class Teste {
 //		System.out.println("O resultado da soma foi :" + resultado);
 		
 		CadastroDAO cdao = new CadastroDAO();
+		Cadastro cad = new Cadastro();
 		
 		//Executando o método select e retornando a lista de cadastro.
-		cdao.select();
+		//cdao.select();
 		
+		cad = cdao.select(3);
+		
+		if(cad != null) {
+			System.out.println(cad.getFilme().getTitulo());
+		}else {
+			System.out.println("Registro não encontrado!");
+		}
 		
 	}
 

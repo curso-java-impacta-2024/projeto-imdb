@@ -122,19 +122,35 @@ public class CadastroDAO {
 		
 		for (Cadastro cadastro : banco) {
 
-			System.out.println("*********************");
+			System.out.println("\n********** Item:[ "+ cadastro.getId() +" ]********");
 			System.out.println("NOME DO ADMIN : " + cadastro.getAdmin().getNome());
 			System.out.println("NOME DO FILME : " + cadastro.getFilme().getTitulo());
 			System.out.println("NOTA DO FILME : " + cadastro.getFilme().getNota());
 			System.out.println("NOME DA SÉRIE: " + cadastro.getSerie().getTitulo());
 			System.out.println("NOTA DA SÉRIE: " + cadastro.getSerie().getNota());
-			System.out.println("*********************");
+			System.out.println("*********************\n");
 		}
 		
 	}
 	
-	public Cadastro select(){
+	public Cadastro select(int id){
 		
+		for(int x = 0; x < banco.size(); x++) {
+			if(banco.get(x).getId() == id) {
+				return banco.get(x);
+			}
+		}
+		
+		return null;
+	}
+	
+	public boolean delete(int id) {
+		
+		if(banco.remove(select(id))) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 
