@@ -8,36 +8,20 @@ public class Cadastro {
 	private Admin admin;
 	private Filme filme;
 	private Serie serie;
-	
-	
+	private int id;
 	public Cadastro() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Admin getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(Admin admin) {
+	public Cadastro(Admin admin, Filme filme, Serie serie, int id) {
+		super();
 		this.admin = admin;
-	}
-
-	public Filme getFilme() {
-		return filme;
-	}
-
-	public void setFilme(Filme filme) {
 		this.filme = filme;
-	}
-
-	public Serie getSerie() {
-		return serie;
-	}
-
-	public void setSerie(Serie serie) {
 		this.serie = serie;
+		this.id = id;
 	}
-
-	
-	
 }
+	
+	
+	
+	

@@ -24,47 +24,104 @@ public class CadastroDAO {
 			// Serie serie = new Serie();
 
 
-			cadastro.setFilme(filme);
-			// Criando Serie
-
-			// Criando o Administrador
-			cadastro = new Cadastro();
-			admin = new Admin();
+			//criando Admin
+			admin.setNome("Mari");
+			admin.setEmail("mari@mari.com");
+			admin.setId(1);
+			admin.setId(12345);
 			admin.setCredencial("A");
-			admin.setNome("Basualdo");
-			admin.setEmail("basualdo@email.com");
-			admin.setId(123456);
 			cadastro.setAdmin(admin);
-			
-			filme = new Filme();
-			filme.setAno(2024);
-			filme.setBilheteria(10000);
-			filme.setDuracao(3.50D);
-			filme.setNota(10);
-			filme.setAno(2014);
-			//Criando Serie
-			serie = new Serie();
-			serie.setTemporada(3);
-			serie.setEpisodios(2);
-			serie.setNota(8.5);
-			serie.setTitulo("True Detective");
+			cadastro.setId(123);
+
+			//criando Filme
+			filme.setTitulo("Titanic");
+			filme.setAno(1997);
+			filme.setBilheteria(10000000);
+			filme.setNota(9);
+			filme.setDuracao(3.0D);
+			filme.setId(1);
+			cadastro.setFilme(filme);
+
+			//criando Serie
+			serie.setTitulo("The Big Bang Theory");
+			serie.setAno(2019);
+			serie.setTemporada(12);
+			serie.setEpisodios(279);
+			serie.setId(2);
 			cadastro.setSerie(serie);
-			// Adicionando a cadastro na lista
-			banco.add(cadastro);
+
+			//adicionando  cadastro na lista
+			Serie serie2 = new Serie();
+			Filme filme2 = new Filme();
+			cadastro2.setAdmin(admin);
+			cadastro2.setId(456);
+
+			//criando Filme
+			filme2.setTitulo("Bastardos Inglorios");
+			filme2.setAno(2009);
+			filme2.setBilheteria(10000000);
+			filme2.setNota(9);
+			filme2.setDuracao(2.3D);
+			filme2.setId(3);
+			cadastro2.setFilme(filme2);
+
+			//criando Serie
+			serie2.setTitulo("Game of Thrones");
+			serie2.setAno(2011);
+			serie2.setTemporada(8);
+			serie2.setEpisodios(73);
+			serie2.setId(4);
+			cadastro2.setSerie(serie2);
+
+			//adicionando  cadastro na lista
+			Serie serie3 = new Serie();
+			Filme filme3 = new Filme();
+			cadastro3.setAdmin(admin);
+			cadastro3.setId(789);
+			
+
+			//criando Filme
+			filme3.setTitulo("A Lista de Schindler");
+			filme3.setAno(1993);
+			filme3.setBilheteria(10000000);
+			filme3.setNota(9);
+			filme3.setDuracao(2.3D);
+			filme3.setId(5);
+			cadastro3.setFilme(filme3);
+
+			//criando Serie
+			serie3.setTitulo("Dexter");
+			serie3.setAno(2006);
+			serie3.setTemporada(8);
+			serie3.setEpisodios(96);
+			serie3.setId(6);
+			cadastro3.setSerie(serie3);
+
+			//adicionando  cadastro na lista
+			System.out.println("************************************************");
 		}
-
-	
-	
-	for (Cadastro cadastro : banco) {
-		System.out.println("***********************");
-		System.out.println("NOME DO ADMIN : " + cadastro.getAdmin().getNome());
-		System.out.println("NOME DO FILME : " + cadastro.getFilme().getTitulo());
-		System.out.println("NOME DO FILME : " + cadastro.getFilme().getNota());
-		System.out.println("NOME DO SÈRIE : " + cadastro.getSerie().getTitulo());
-		System.out.println("NOME DO SÈRIE : " + cadastro.getSerie().getNota());
-		System.out.println("***********************");
-
 	}
+//	public Cadastro select(int id) {
+//		
+//	}
+
+
+
+	public void select() {
+
+		for (Cadastro cadastro : banco) {
+			System.out.println("***********************");
+			System.out.println("NOME DO ADMIN : " + cadastro.getAdmin().getNome());
+			System.out.println("NOME DO FILME : " + cadastro.getFilme().getTitulo());
+			System.out.println("NOME DO FILME : " + cadastro.getFilme().getNota());
+			System.out.println("NOME DO SÈRIE : " + cadastro.getSerie().getTitulo());
+			System.out.println("NOME DO SÈRIE : " + cadastro.getSerie().getNota());
+			System.out.println("***********************");
+
+		}
+	}
+	public Cadastro select() {
+		
 	}
 
 }
