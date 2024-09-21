@@ -54,6 +54,8 @@ public class Manipulacao {
 		}
 
 		scan.close();
+		
+		//Subindo para a main!
 
 	}
 
