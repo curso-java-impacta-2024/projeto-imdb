@@ -1,5 +1,6 @@
 package com.imdb.data;
 
+
 import com.imdb.users.Admin;
 
 public class Cadastro {
@@ -7,6 +8,7 @@ public class Cadastro {
 	private Admin admin;
 	private Filme filme;
 	private Serie serie;
+	
 	
 	public Cadastro() {
 		// TODO Auto-generated constructor stub
@@ -35,5 +37,7 @@ public class Cadastro {
 	public void setSerie(Serie serie) {
 		this.serie = serie;
 	}
+
+	
 	
 }
