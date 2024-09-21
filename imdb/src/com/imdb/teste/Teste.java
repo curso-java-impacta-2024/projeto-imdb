@@ -8,6 +8,7 @@ import java.util.Scanner;
 import com.imdb.data.Cadastro;
 import com.imdb.data.Filme;
 import com.imdb.data.Serie;
+import com.imdb.data.dao.CadastroDAO;
 import com.imdb.users.Admin;
 
 public class Teste {
@@ -76,29 +77,36 @@ public class Teste {
 		//Erros
 		//Exceções
 		
-		Scanner scan = new Scanner(System.in);
+//		Scanner scan = new Scanner(System.in);
+//		
+//		int nr1 = 0;
+//		int nr2 = 0;
+//		
+//		try{
+//			System.out.println("Digite o valor do primeiro número :");
+//			nr1 = Integer.parseInt(scan.next());
+//			System.out.println("Digite o valor do segundo número :");		
+//			nr2 = Integer.parseInt(scan.next());
+//		}catch(NumberFormatException e) {
+//			e.printStackTrace();
+//			System.out.println("Somente números podem ser digitados:");
+//			System.out.println("Digite o valor do primeiro número :");
+//			nr1 = Integer.parseInt(scan.next());
+//			System.out.println("Digite o valor do segundo número :");		
+//			nr2 = Integer.parseInt(scan.next());
+//		}
+//		
+//		int resultado = 0;
+//		
+//		resultado = nr1+nr2;
+//		
+//		System.out.println("O resultado da soma foi :" + resultado);
 		
-		int nr1 = 0;
-		int nr2 = 0;
+		CadastroDAO cdao = new CadastroDAO();
 		
-		try{
-			System.out.println("Digite o valor do primeiro número :");
-			nr1 = Integer.parseInt(scan.next());
-			System.out.println("Digite o valor do segundo número :");		
-			nr2 = Integer.parseInt(scan.next());
-		}catch(NumberFormatException e) {
-			System.out.println("Somente números podem ser digitados:");
-			System.out.println("Digite o valor do primeiro número :");
-			nr1 = Integer.parseInt(scan.next());
-			System.out.println("Digite o valor do segundo número :");		
-			nr2 = Integer.parseInt(scan.next());
-		}
+		//Executando o método select e retornando a lista de cadastro.
+		cdao.select();
 		
-		int resultado = 0;
-		
-		resultado = nr1+nr2;
-		
-		System.out.println("O resultado da soma foi :" + resultado);
 		
 	}
 
