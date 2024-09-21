@@ -129,8 +129,20 @@ public class CadastroDAO {
 
 	}
 
+	 Cadastro cadastro =  new Cadastro();
+	
 	public List<Cadastro> select() {
-
+		
+		System.out.println("******************************************");
+		System.out.println("Nome do admin: " + cadastro.getAdmin().getNome());
+		System.out.println("Nome do filme" + cadastro.getFilme().getTitulo());
+		System.out.println("Nota do filme" + cadastro.getFilme().getNota());
+		System.out.println("Nome da serie" + cadastro.getFilme().getTitulo());
+		System.out.println("Nota da serie" + cadastro.getFilme().getNota());
+		System.out.println("******************************************");
+		
+		
+	
 		return banco;
 
 	}
