@@ -7,6 +7,7 @@ public class Cadastro {
 	private Admin admin;
 	private Filme filme;
 	private Serie serie;
+	private int id;
 	
 
 	public Cadastro() {
@@ -41,6 +42,16 @@ public class Cadastro {
 
 	public void setSerie(Serie serie) {
 		this.serie = serie;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

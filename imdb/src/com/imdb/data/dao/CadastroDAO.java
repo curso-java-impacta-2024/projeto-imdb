@@ -37,6 +37,7 @@ public class CadastroDAO {
 			filme.setDuracao(3.50D);
 			filme.setNota(10);
 			filme.setTitulo("Deadpool e Wolverine");
+			filme.setId(1);
 			cadastro.setFilme(filme);
 
 			// Criando o Serie
@@ -45,6 +46,8 @@ public class CadastroDAO {
 			serie.setEpisodios(65);
 			serie.setNota(6);
 			serie.setTitulo("Cobra Kai");
+			serie.setId(1);
+			cadastro.setId(1);
 			cadastro.setSerie(serie);
 
 			// Adicionando o cadastro na lista
@@ -65,6 +68,7 @@ public class CadastroDAO {
 			filme.setDuracao(2.50D);
 			filme.setNota(8);
 			filme.setTitulo("Lady Bug");
+			filme.setId(2);
 			cadastro.setFilme(filme);
 
 			serie = new Serie();
@@ -73,6 +77,8 @@ public class CadastroDAO {
 			serie.setEpisodios(25);
 			serie.setNota(6);
 			serie.setTitulo("Street Food");
+			serie.setId(2);
+			cadastro.setId(2);
 			cadastro.setSerie(serie);
 
 			banco.add(cadastro);
@@ -91,6 +97,7 @@ public class CadastroDAO {
 			filme.setDuracao(3.10D);
 			filme.setNota(10);
 			filme.setTitulo("Missão Impossível");
+			filme.setId(3);
 			cadastro.setFilme(filme);
 
 			serie = new Serie();
@@ -99,6 +106,8 @@ public class CadastroDAO {
 			serie.setEpisodios(16);
 			serie.setNota(8);
 			serie.setTitulo("True Detective");
+			serie.setId(3);
+			cadastro.setId(3);
 			cadastro.setSerie(serie);
 
 			banco.add(cadastro);
@@ -120,6 +129,10 @@ public class CadastroDAO {
 			System.out.println("**********************************************");
 		
 		}
+	}
+	
+	public Cadastro select() {
+		
 	}
 
 }
