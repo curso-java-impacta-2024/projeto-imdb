@@ -27,9 +27,10 @@ public class CadastroDAO {
 			//criando Admin
 			admin.setNome("Mari");
 			admin.setEmail("mari@mari.com");
-			admin.setId(1);
+			admin.setId(12345);
 			admin.setCredencial("A");
 			cadastro.setAdmin(admin);
+			cadastro.setId(123);
 			
 			//criando Filme
 			filme.setTitulo("Titanic");
@@ -37,6 +38,7 @@ public class CadastroDAO {
 			filme.setBilheteria(10000000);
 			filme.setNota(9);
 			filme.setDuracao(3.0D);
+			filme.setId(1);
 			cadastro.setFilme(filme);
 			
 			//criando Serie
@@ -44,6 +46,7 @@ public class CadastroDAO {
 			serie.setAno(2019);
 			serie.setTemporada(12);
 			serie.setEpisodios(279);
+			serie.setId(2);
 			cadastro.setSerie(serie);
 			
 			//adicionando  cadastro na lista
@@ -57,6 +60,7 @@ public class CadastroDAO {
 			Serie serie2 = new Serie();
 			Filme filme2 = new Filme();
 			cadastro2.setAdmin(admin);
+			cadastro2.setId(456);
 					
 			//criando Filme
 			filme2.setTitulo("Bastardos Inglorios");
@@ -64,6 +68,7 @@ public class CadastroDAO {
 			filme2.setBilheteria(10000000);
 			filme2.setNota(9);
 			filme2.setDuracao(2.3D);
+			filme2.setId(3);
 			cadastro2.setFilme(filme2);
 					
 			//criando Serie
@@ -71,6 +76,7 @@ public class CadastroDAO {
 			serie2.setAno(2011);
 			serie2.setTemporada(8);
 			serie2.setEpisodios(73);
+			serie2.setId(4);
 			cadastro2.setSerie(serie2);
 					
 			//adicionando  cadastro na lista
@@ -84,6 +90,8 @@ public class CadastroDAO {
 			Serie serie3 = new Serie();
 			Filme filme3 = new Filme();
 			cadastro3.setAdmin(admin);
+			cadastro3.setId(789);
+			
 							
 			//criando Filme
 			filme3.setTitulo("A Lista de Schindler");
@@ -91,6 +99,7 @@ public class CadastroDAO {
 			filme3.setBilheteria(10000000);
 			filme3.setNota(9);
 			filme3.setDuracao(2.3D);
+			filme3.setId(5);
 			cadastro3.setFilme(filme3);
 							
 			//criando Serie
@@ -98,6 +107,7 @@ public class CadastroDAO {
 			serie3.setAno(2006);
 			serie3.setTemporada(8);
 			serie3.setEpisodios(96);
+			serie3.setId(6);
 			cadastro3.setSerie(serie3);
 							
 			//adicionando  cadastro na lista
@@ -115,5 +125,8 @@ public class CadastroDAO {
 			System.out.println("************************************************");
 		}
 	}
+//	public Cadastro select(int id) {
+//		
+//	}
 
 }

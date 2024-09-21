@@ -6,9 +6,16 @@ public class Cadastro {
 	private Admin admin;
 	private Serie serie;
 	private Filme filme;
+	private int id;
 	
 	
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Admin getAdmin() {
 		return admin;
 	}

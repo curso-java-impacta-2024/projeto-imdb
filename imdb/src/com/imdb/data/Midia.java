@@ -5,11 +5,19 @@ public class Midia {
 	private String titulo;
 	private int ano;
 	private double nota;
+	private int id;
 	
 	public Midia() {
 		
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
 	public String getTitulo() {
 		return titulo;
 	}
