@@ -32,6 +32,7 @@ public class CadastroDAO {
 			cadastro.setAdmin(admin);
 			// Criando o filme
 			
+			filme.setId(1);
 			filme.setAno(2024);
 			filme.setBilheteria(10000);
 			filme.setDuracao(3.50D);
@@ -39,12 +40,14 @@ public class CadastroDAO {
 			filme.setTitulo("DeadPool e Wolwerine");
 			cadastro.setFilme(filme);
 			// Criando a série
+			serie.setId(1);
 			serie.setAno(2022);
 			serie.setTemporada(6);
 			serie.setEpisodios(65);
 			serie.setNota(10);
 			serie.setTitulo("Cobra Kai");
 			cadastro.setSerie(serie);
+			cadastro.setId(1);
 			// Adicionando o cadastro na lista
 			banco.add(cadastro);
 
@@ -60,6 +63,7 @@ public class CadastroDAO {
 			cadastro.setAdmin(admin);
 			// Criando o filme
 			filme = new Filme();
+			filme.setId(2);
 			filme.setAno(2022);
 			filme.setBilheteria(40000);
 			filme.setDuracao(2.50D);
@@ -68,11 +72,13 @@ public class CadastroDAO {
 			cadastro.setFilme(filme);
 			// Criando a série
 			serie = new Serie();
+			serie.setId(2);
 			serie.setAno(2021);
 			serie.setTemporada(3);
 			serie.setEpisodios(25);
 			serie.setNota(5);
 			serie.setTitulo("Street Food");
+			cadastro.setId(2);
 			cadastro.setSerie(serie);
 			// Adicionando o cadastro na lista
 			banco.add(cadastro);
@@ -89,6 +95,7 @@ public class CadastroDAO {
 			cadastro.setAdmin(admin);
 			// Criando o filme
 			filme = new Filme();
+			filme.setId(3);
 			filme.setAno(2023);
 			filme.setBilheteria(80000);
 			filme.setDuracao(3.10D);
@@ -97,11 +104,13 @@ public class CadastroDAO {
 			cadastro.setFilme(filme);
 			// Criando a série
 			serie = new Serie();
+			serie.setId(3);
 			serie.setAno(2014);
 			serie.setTemporada(3);
 			serie.setEpisodios(2);
 			serie.setNota(8.5);
 			serie.setTitulo("True Detective");
+			cadastro.setId(3);
 			cadastro.setSerie(serie);
 			// Adicionando o cadastro na lista
 			banco.add(cadastro);
@@ -123,5 +132,10 @@ public class CadastroDAO {
 		}
 		
 	}
+	
+	public Cadastro select(){
+		
+	}
+	
 
 }
