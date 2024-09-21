@@ -8,6 +8,8 @@ public class Cadastro {
 	private Filme filme;
 	private Serie serie;
 	
+	 
+	
 	public Cadastro() {
 		// TODO Auto-generated constructor stub
 	}

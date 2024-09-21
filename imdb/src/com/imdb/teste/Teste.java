@@ -1,14 +1,9 @@
 package com.imdb.teste;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 
 import com.imdb.data.Cadastro;
-import com.imdb.data.Filme;
-import com.imdb.data.Serie;
-import com.imdb.users.Admin;
+import com.imdb.data.dAO.CadastroDAO;
 
 public class Teste {
 
@@ -76,7 +71,7 @@ public class Teste {
 		//Erros
 		//Exceções
 		
-		Scanner scan = new Scanner(System.in);
+		/*Scanner scan = new Scanner(System.in);
 		
 		int nr1 = 0;
 		int nr2 = 0;
@@ -87,6 +82,7 @@ public class Teste {
 			System.out.println("Digite o valor do segundo número :");		
 			nr2 = Integer.parseInt(scan.next());
 		}catch(NumberFormatException e) {
+			e.printStackTrace();
 			System.out.println("Somente números podem ser digitados:");
 			System.out.println("Digite o valor do primeiro número :");
 			nr1 = Integer.parseInt(scan.next());
@@ -99,6 +95,31 @@ public class Teste {
 		resultado = nr1+nr2;
 		
 		System.out.println("O resultado da soma foi :" + resultado);
+		*/
+		
+		
+		CadastroDAO cdao = new CadastroDAO();
+		
+		// Executando o m´w
+		/*List<Cadastro> bancoLista = cdao.select();
+		
+		for(Cadastro cadastro : bancoLista) {
+			
+			System.out.println("******************************************");
+			System.out.println("Nome do admin: " + cadastro.getAdmin().getNome());
+			System.out.println("Nome do filme" + cadastro.getFilme().getTitulo());
+			System.out.println("Nota do filme" + cadastro.getFilme().getNota());
+			System.out.println("Nome da serie" + cadastro.getFilme().getTitulo());
+			System.out.println("Nota da serie" + cadastro.getFilme().getNota());
+			System.out.println("******************************************");
+			
+			
+			
+		}*/
+		
+		cdao.select();
+		
+		
 		
 	}
 
