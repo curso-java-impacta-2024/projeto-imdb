@@ -21,6 +21,7 @@ public class Manipulacao {
 		boolean key = true;
 		int opt = 0;
 		CadastroDAO cdao;
+		Cadastro cadastro;
 
 		while (key) {
 			System.out.println("BEM VINDO AO SISTEMA DE GERIENCIAMENTO");
@@ -41,7 +42,7 @@ public class Manipulacao {
 			case 2:
 				cdao = new CadastroDAO();
 				
-				Cadastro cadastro = new Cadastro();
+				cadastro = new Cadastro();
 				Admin admin = new Admin();
 				Filme filme = new Filme();
 				Serie serie = new Serie();
@@ -84,6 +85,54 @@ public class Manipulacao {
 					System.out.println("Obras cadastradas com SUCESSO!");
 				}else {
 					System.out.println("Ocorreu um erro ao realizar o cadastro!!");
+				}
+				break;
+			case 3:
+				cdao = new CadastroDAO();
+				cadastro = new Cadastro();
+				
+				//LISTANDO OS ITENS
+				cdao.select();
+				//SOLICITANDO O USUÁRIO QUE ESCOLHA UM ITEM
+				System.out.println("Selecione um dos itens acima para realizar a atualização:");
+				cadastro = cdao.select( Integer.parseInt(scan.next()));
+				//APRESENTANDO AO USUÁRIO A ESCOLHA DELE
+				System.out.println("\n********** SUA ESCOLHA ********");
+				System.out.println("\n********** Item:[ "+ cadastro.getId() +" ]********");
+				System.out.println("NOME DO ADMIN : " + cadastro.getAdmin().getNome());
+				System.out.println("NOME DO FILME : " + cadastro.getFilme().getTitulo());
+				System.out.println("NOTA DO FILME : " + cadastro.getFilme().getNota());
+				System.out.println("NOME DA SÉRIE: " + cadastro.getSerie().getTitulo());
+				System.out.println("NOTA DA SÉRIE: " + cadastro.getSerie().getNota());
+				System.out.println("*********************\n");
+				
+				System.out.println("\nAtualize o ano do filme: ");
+				cadastro.getFilme().setAno( Integer.parseInt(scan.next()) );
+				System.out.println("\nAtualize a bilheteria: ");
+				cadastro.getFilme().setBilheteria(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a nota do Filme: ");
+				cadastro.getFilme().setNota(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize o Título do Filme: ");
+				cadastro.getFilme().setTitulo(scan.next());
+				//Filme ATUALIZADO
+				//Iniciando atualização da SÉRIE
+				System.out.println("\nAtualize o ano da Série: ");
+				cadastro.getSerie().setAno(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a quantidade de Temporadas: ");
+				cadastro.getSerie().setTemporada(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a quantidade de Episódios: ");
+				cadastro.getSerie().setEpisodios(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a nota da Série: ");
+				cadastro.getSerie().setNota(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize o Título da Série: ");
+				cadastro.getSerie().setTitulo(scan.next());
+				//SÉRIE ATUALIZADA
+				//Executando o método de atualização no banco e verificando a
+				// consistência do processo!!
+				if(cdao.update(cadastro)) {
+					System.out.println("Obras atualizadas com SUCESSO!");
+				}else {
+					System.out.println("Ocorreu um erro ao realizar a atualização!!");
 				}
 				break;
 			case 4:

@@ -103,42 +103,60 @@ public class Teste {
 //		System.out.println("O resultado da soma foi :" + resultado);
 		
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cadastro = new Cadastro();
+		Cadastro cadastro = null;
 		Admin admin = new Admin();
 		Filme filme = new Filme();
 		Serie serie = new Serie();
 		
-		//Criando o Administrador
-		admin.setCredencial("A");
-		admin.setNome("Basualdo");
-		admin.setEmail("basualdo@email.com");
-		admin.setId(123456);
-		cadastro.setAdmin(admin);
+//		//IMPRIMINDO A LISTA DE DADOS PARA VER COMO ESTAVA ANTES
+//		cdao.select();
 		
-		filme.setAno(2023);
-		filme.setBilheteria(4000);
-		filme.setDuracao(3.50D);
-		filme.setNota(5);
-		filme.setTitulo("MINIONS");
-		cadastro.setFilme(filme);
-
-		serie.setAno(2021);
-		serie.setTemporada(3);
-		serie.setEpisodios(22);
-		serie.setNota(3);
-		serie.setTitulo("TEMPEST");
-		cadastro.setSerie(serie);
+		//Recuperando um objeto para EDITAR através do método select(id)
+			cadastro = cdao.select(2);
+		// Alterando o FILME
+			cadastro.getFilme().setAno(2020);
+			cadastro.getFilme().setBilheteria(3000);
+			cadastro.getFilme().setDuracao(3.50D);
+			cadastro.getFilme().setNota(3);
+			cadastro.getFilme().setTitulo("Lady Bugada");
+		//Chamando o método UPDATE e inserindo o objeto cadastro alterado
+		cdao.update(cadastro);
+		
+		//IMPRIMINDO A LISTA DE DADOS PARA CONFERIR AS ALTERAÇÕES
+		cdao.select();
+			
+//		
+//		//Criando o Administrador
+//		admin.setCredencial("A");
+//		admin.setNome("Basualdo");
+//		admin.setEmail("basualdo@email.com");
+//		admin.setId(123456);
+//		cadastro.setAdmin(admin);
+//		
+//		filme.setAno(2023);
+//		filme.setBilheteria(4000);
+//		filme.setDuracao(3.50D);
+//		filme.setNota(5);
+//		filme.setTitulo("MINIONS");
+//		cadastro.setFilme(filme);
+//
+//		serie.setAno(2021);
+//		serie.setTemporada(3);
+//		serie.setEpisodios(22);
+//		serie.setNota(3);
+//		serie.setTitulo("TEMPEST");
+//		cadastro.setSerie(serie);
 		
 		//Executando o método de insert de CadastroDAO
-		cdao.insert(cadastro);
+//		cdao.insert(cadastro);
 		
 		//Criando um List para recuperar o banco e mostrar no console:
-		List<Cadastro> banco = null;
+//		List<Cadastro> banco = null;
 		
 		//Executando o método select e retornando a lista de cadastro para
 		// o banco local
 		
-		banco = cdao.select();
+//		banco = cdao.select();
 		
 //		cad = cdao.select(3);
 //		
@@ -147,6 +165,24 @@ public class Teste {
 //		}else {
 //			System.out.println("Registro não encontrado!");
 //		}
+		
+		
+		
+		
+//		Filme filme = new Filme();
+//		Filme filme2 = new Filme();
+//		
+//		filme.setTitulo("FILME");
+//		filme2.setTitulo("FILME");
+//		
+//		if(filme == filme2) {
+//			System.out.println(true);
+//		}else {
+//			System.out.println(false);
+//		}
+//		
+//		System.out.println(filme);
+//		System.out.println(filme2);
 		
 	}
 

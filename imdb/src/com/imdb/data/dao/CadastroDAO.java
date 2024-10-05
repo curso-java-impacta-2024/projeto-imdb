@@ -173,6 +173,25 @@ public class CadastroDAO {
 		return banco.add(cadastro);
 	}
 	
-	
+	public boolean update(Cadastro cadastro) {
+		
+		for(int x = 0; x < banco.size(); x++) {
+			if(banco.get(x).getId() == cadastro.getId()) {
+				banco.set(x, cadastro);
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
 }
+
+
+
+
+
+
+
+
+
