@@ -106,17 +106,48 @@ public class Teste {
 //		System.out.println("O resultado da soma foi: " + resultado);;
 		
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cad = new Cadastro();
-		//EXECUTANDO O METODO SELECT E RETORNANDO A LISTA DE CADASTRO
-//		cdao.select();
+		Cadastro cadastro = new Cadastro();
+		Admin admin = new Admin();
+		Filme filme = new Filme();
+		Serie serie = new Serie();
 		
-		cad = cdao.select(2);
+
+		admin.setCredencial("A");
+		admin.setNome("Basualdo");
+		admin.setEmail("basualdo@email.com");
+		admin.setId(123456);		
+		cadastro.setAdmin(admin);	
 		
-		if (cad != null) {
-			System.out.println(cad.getFilme().getTitulo());
-		} else {
-			System.out.println("Registro não encontrado!");
-		}
+		filme.setAno(2024);
+		filme.setBilheteria(100000);
+		filme.setDuracao(3.50D);
+		filme.setNota(10);
+		filme.setTitulo("Deadpool e Wolverine");		
+		cadastro.setFilme(filme);		
+		
+		serie.setAno(2022);
+		serie.setTemporada(6);
+		serie.setEpisodios(65);
+		serie.setNota(6);
+		serie.setTitulo("Cobra Kai");		
+		cadastro.setSerie(serie);
+		
+		//Executando o método de insert de CadastroDA.
+		cdao.insert(cadastro);
+		
+		//Criando um List para recuperar o banco e mostrar no console.
+		List<Cadastro> banco = null;
+		
+		//Executando o método select e retornando a lsita de cadastro para o banco local.
+		banco = cdao.select();
+		
+//		cad = cdao.select(2);
+//		
+//		if (cad != null) {
+//			System.out.println(cad.getFilme().getTitulo());
+//		} else {
+//			System.out.println("Registro não encontrado!");
+//		}
 
 	}
 
