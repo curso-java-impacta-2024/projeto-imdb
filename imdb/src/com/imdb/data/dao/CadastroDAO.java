@@ -115,7 +115,7 @@ public class CadastroDAO {
 		}		
 	}
 	
-	public void select(){
+	public List<Cadastro> select(){
 		for(Cadastro cadastro : banco) {
 			
 			System.out.println("\n************ Item: [ " + cadastro.getId() + " ] ******************");
@@ -125,9 +125,10 @@ public class CadastroDAO {
 			System.out.println("nome do serie: " + cadastro.getSerie().getTitulo());
 			System.out.println("************************************************\n");
 		}
+		return banco;
 	}
 	
-	
+	// menu 1 - listar dados
 	public Cadastro select(int id) {
 		for(int x = 0; x < banco.size(); x++) {
 		    if(banco.get(x).getId() == id){
@@ -137,6 +138,7 @@ public class CadastroDAO {
 		return null;
 	}
 	
+	// menu 4 - excluir
 	public boolean delete(int id) {
 		if(banco.remove(select(id))) {
 			return true;
@@ -145,4 +147,26 @@ public class CadastroDAO {
 		
 	}
 	
+	// menu 2 - cadastrar
+	public boolean insert(Cadastro cadastro) {
+		
+		int idCadastro = 0;
+		int idFilme = 0;
+		int idSerie = 0 ;
+		
+		Cadastro ultimoObj = banco.get(banco.size()-1);
+		
+		idCadastro = ultimoObj.getId()+1;
+		idFilme = ultimoObj.getFilme().getId()+1;
+		idSerie = ultimoObj.getSerie().getId()+1;
+		
+		cadastro.setId(idCadastro);
+		cadastro.getFilme().setId(idFilme);
+		cadastro.getSerie().setId(idSerie);
+		
+		banco.add(cadastro);
+		
+		return true;
+		
+	}
 }

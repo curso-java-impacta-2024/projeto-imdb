@@ -16,15 +16,15 @@ public class Teste {
 	public static void main(String[] args) {
 
 		//Instance
-//		Cadastro cadastro = new Cadastro();
-//		Admin admin = new Admin();
-//		admin.setNome("Mari");
-//		admin.setEmail("mari@mari.com");
-//		admin.setId(1);
+		Cadastro cadastro = new Cadastro();
+		Admin admin = new Admin();
+		admin.setNome("Mari");
+		admin.setEmail("mari@mari.com");
+		admin.setId(1);
 //		admin.setCredencial("A");
 //		cadastro.setAdmin(admin);
 //		
-//		Filme filme = new Filme();
+		Filme filme = new Filme();
 //		filme.setTitulo("Titanic");
 //		filme.setAno(1997);
 //		filme.setBilheteria(10000000);
@@ -32,7 +32,7 @@ public class Teste {
 //		filme.setDuracao(3.0D);
 //		cadastro.setFilme(filme);
 //		
-//		Serie serie = new Serie();
+		Serie serie = new Serie();
 //		serie.setTitulo("The Big Bang Theory");
 //		serie.setAno(2019);
 //		serie.setTemporada(12);
@@ -53,23 +53,23 @@ public class Teste {
 //		
 //		//================================================
 //		
-//		cadastro = new Cadastro();
-//		cadastro.setAdmin(admin);
-//		
-//		filme = new Filme();
-//		filme.setTitulo("Bastardos Inglorios");
-//		filme.setAno(2009);
-//		filme.setBilheteria(10000000);
-//		filme.setNota(9);
-//		filme.setDuracao(2.30D);
-//		cadastro.setFilme(filme);
-//		
-//		serie = new Serie();
-//		serie.setTitulo("Game of Thrones");
-//		serie.setAno(2019);
-//		serie.setTemporada(8);
-//		serie.setEpisodios(73);
-//		cadastro.setSerie(serie);
+		cadastro = new Cadastro();
+		cadastro.setAdmin(admin);
+		
+		filme = new Filme();
+		filme.setTitulo("Meu Malvado favorito");
+		filme.setAno(2020);
+		filme.setBilheteria(10000000);
+		filme.setNota(9);
+		filme.setDuracao(2.30D);
+		cadastro.setFilme(filme);
+		
+		serie = new Serie();
+		serie.setTitulo("Bridgerton");
+		serie.setAno(2023);
+		serie.setTemporada(8);
+		serie.setEpisodios(73);
+		cadastro.setSerie(serie);
 //		
 //		lista.add(cadastro);
 //		
@@ -94,15 +94,27 @@ public class Teste {
 //		}
 	
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cad = new Cadastro();
+//		Cadastro cad = new Cadastro();
 		
-		cad = cdao.select(4);
+		//METODO SELECT PARAR RECUPERAR INFO DO "BANCO"
+//		cad = cdao.select(4);
+//		
+//		if(cad != null) {
+//			System.out.println(cad.getFilme().getTitulo());
+//		}else {
+//			System.out.println("Registro não encontrado.");	
+//		}
 		
-		if(cad != null) {
-			System.out.println(cad.getFilme().getTitulo());
-		}else {
-			System.out.println("Registro não encontrado.");	
-		}
+		
+		//METODO INSERT / CADASTRAR NOVO OBJETO NO "BANCO"
+		
+		cdao.insert(cadastro);
+		// cria uma lista 
+		List<Cadastro> banco = null;
+		
+		//executa o select para verificar se foi adicionado
+		banco = cdao.select();
+		
 	}
 
 }
