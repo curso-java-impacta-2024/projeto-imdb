@@ -103,18 +103,50 @@ public class Teste {
 //		System.out.println("O resultado da soma foi :" + resultado);
 		
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cad = new Cadastro();
+		Cadastro cadastro = new Cadastro();
+		Admin admin = new Admin();
+		Filme filme = new Filme();
+		Serie serie = new Serie();
 		
-		//Executando o método select e retornando a lista de cadastro.
-		//cdao.select();
+		//Criando o Administrador
+		admin.setCredencial("A");
+		admin.setNome("Basualdo");
+		admin.setEmail("basualdo@email.com");
+		admin.setId(123456);
+		cadastro.setAdmin(admin);
 		
-		cad = cdao.select(3);
+		filme.setAno(2023);
+		filme.setBilheteria(4000);
+		filme.setDuracao(3.50D);
+		filme.setNota(5);
+		filme.setTitulo("MINIONS");
+		cadastro.setFilme(filme);
+
+		serie.setAno(2021);
+		serie.setTemporada(3);
+		serie.setEpisodios(22);
+		serie.setNota(3);
+		serie.setTitulo("TEMPEST");
+		cadastro.setSerie(serie);
 		
-		if(cad != null) {
-			System.out.println(cad.getFilme().getTitulo());
-		}else {
-			System.out.println("Registro não encontrado!");
-		}
+		//Executando o método de insert de CadastroDAO
+		cdao.insert(cadastro);
+		
+		//Criando um List para recuperar o banco e mostrar no console:
+		List<Cadastro> banco = null;
+		
+		//Executando o método select e retornando a lista de cadastro para
+		// o banco local
+		
+		banco = cdao.select();
+		
+//		cad = cdao.select(3);
+//		
+//		if(cad != null) {
+//			System.out.println(cad.getFilme().getTitulo());
+//		}else {
+//			System.out.println("Registro não encontrado!");
+//		}
 		
 	}
 

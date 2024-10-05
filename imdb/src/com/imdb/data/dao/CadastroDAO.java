@@ -118,7 +118,7 @@ public class CadastroDAO {
 
 	}
 	
-	public void select(){
+	public List<Cadastro> select(){
 		
 		for (Cadastro cadastro : banco) {
 
@@ -131,6 +131,7 @@ public class CadastroDAO {
 			System.out.println("*********************\n");
 		}
 		
+		return banco;
 	}
 	
 	public Cadastro select(int id){
@@ -152,6 +153,26 @@ public class CadastroDAO {
 		
 		return false;
 	}
+
+	public boolean insert(Cadastro cadastro) {
+			
+		int idCad   = 0;
+		int idFilme = 0;
+		int idSerie = 0;
+		
+		Cadastro ultimoObj = banco.get( banco.size() - 1 );
+		
+		idCad	=	ultimoObj.getId()+1;
+		idFilme	=  	ultimoObj.getFilme().getId()+1;
+		idSerie	= 	ultimoObj.getSerie().getId()+1;
+		
+		cadastro.setId(idCad);
+		cadastro.getFilme().setId(idFilme);
+		cadastro.getSerie().setId(idSerie);
+		
+		return banco.add(cadastro);
+	}
+	
 	
 
 }
