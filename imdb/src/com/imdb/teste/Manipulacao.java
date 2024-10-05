@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.imdb.data.Cadastro;
+import com.imdb.data.Filme;
+import com.imdb.data.Serie;
 import com.imdb.data.dAO.CadastroDAO;
+import com.imdb.users.Admin;
 
 public class Manipulacao {
 
@@ -39,6 +42,53 @@ public class Manipulacao {
 				cdao = new CadastroDAO();
 				cdao.select();
 				break;
+				
+			case 2:
+				cdao = new CadastroDAO();
+				
+				Cadastro cadastro = new Cadastro();
+				Admin admin = new Admin();
+				Filme filme = new Filme();
+				Serie serie = new Serie();
+				
+				//Criando o Administrador
+				admin.setCredencial("A");
+				admin.setNome("Basualdo");
+				admin.setEmail("basualdo@email.com");
+				admin.setId(123456);
+				cadastro.setAdmin(admin);
+				
+				System.out.println("Digite o ano do filme: ");
+				filme.setAno(Integer.parseInt(scan.next()) );
+				System.out.println("\n Digite a bilheteria: ");
+				filme.setBilheteria(Integer.parseInt(scan.next()));
+				System.out.println("\n Digite a duração:");
+				filme.setDuracao(Double.parseDouble(scan.next()));
+				System.out.println("\n Digite a nota do filme:");
+				filme.setNota(Integer.parseInt(scan.next()));
+				System.out.println("\n Digite o titulo do filme:");
+				filme.setTitulo(scan.next());
+				cadastro.setFilme(filme);
+
+				System.out.println("Digite o ano da Série: ");
+				serie.setAno(Integer.parseInt(scan.next()));
+				System.out.println("\nDigite a quantidade de Temporadas: ");
+				serie.setTemporada(Integer.parseInt(scan.next()));
+				System.out.println("\nDigite a quantidade de Episódios: ");
+				serie.setEpisodios(Integer.parseInt(scan.next()));
+				System.out.println("\nDigite a nota da Serie: ");
+				serie.setNota(Integer.parseInt(scan.next()));
+				System.out.println("\nDigite o titulo da serie: ");
+				serie.setTitulo(scan.next());
+				
+				cadastro.setSerie(serie);
+
+
+				// Executando ométodo deinsert de CadastroDAO
+				cdao.insert(cadastro);
+				
+				
+				
 				
 			case 4:
 				cdao = new CadastroDAO();

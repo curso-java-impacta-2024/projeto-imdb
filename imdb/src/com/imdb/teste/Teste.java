@@ -3,7 +3,10 @@ package com.imdb.teste;
 import java.util.List;
 
 import com.imdb.data.Cadastro;
+import com.imdb.data.Filme;
+import com.imdb.data.Serie;
 import com.imdb.data.dAO.CadastroDAO;
+import com.imdb.users.Admin;
 
 public class Teste {
 
@@ -99,7 +102,50 @@ public class Teste {
 		
 		
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cad = new Cadastro();
+		Cadastro cadastro = new Cadastro();
+		Admin admin = new Admin();
+		Filme filme = new Filme();
+		Serie serie = new Serie();
+		
+		//Criando o Administrador
+		admin.setCredencial("A");
+		admin.setNome("Basualdo");
+		admin.setEmail("basualdo@email.com");
+		admin.setId(123456);
+		cadastro.setAdmin(admin);
+		
+		filme.setAno(2023);
+		filme.setBilheteria(4000);
+		filme.setDuracao(2.50D);
+		filme.setNota(5);
+		filme.setTitulo("Minions");
+		cadastro.setFilme(filme);
+
+		serie.setAno(2021);
+		serie.setTemporada(3);
+		serie.setEpisodios(22);
+		serie.setNota(3);
+		serie.setTitulo("Tempest");
+		cadastro.setSerie(serie);
+
+
+		// Executando ométodo deinsert de CadastroDAO
+		cdao.insert(cadastro);
+		
+		// Criando um List para recuperar o banco e mostrar no console
+		
+		List<Cadastro> banco = null;
+		
+		
+		banco = cdao.select();
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		// Executando o m´w
 		/*List<Cadastro> bancoLista = cdao.select();
@@ -121,7 +167,7 @@ public class Teste {
 		//cdao.select();
 		
 		
-		cad = cdao.select(3);
+		/*cad = cdao.select(3);
 		
 		if(cad != null ) {
 			
@@ -131,7 +177,10 @@ public class Teste {
 			
 			System.out.println("Registro não encontrado!");
 			
-		}
+		}*/
+		
+		
+		
 		
 		
 	}
