@@ -106,40 +106,63 @@ public class Teste {
 //		System.out.println("O resultado da soma foi: " + resultado);;
 		
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cadastro = new Cadastro();
+		Cadastro cadastro = null;
 		Admin admin = new Admin();
 		Filme filme = new Filme();
 		Serie serie = new Serie();
 		
+		//IMPRIMINDO A LISTA DE DADOS PARA VER COMO ESTAVA ANTES
+//		cdao.select();
+		
+		//Recuperando um objeto para EDITAR através do método select(id)
+		cadastro = cdao.select(2);
+		//Alterando o Filme
+			cadastro.getFilme().setAno(2020);
+			cadastro.getFilme().setBilheteria(3000);
+			cadastro.getFilme().setDuracao(3.50D);
+			cadastro.getFilme().setNota(4);
+			cadastro.getFilme().setTitulo("Lady Bugada");
+		//Chamandoo método UPDATE e inserindo o objeto cadastro alterado
+		cdao.update(cadastro);
+		
+		//IMPRIMINDO A LISTA DE DADOS PARA CONFERIR AS ALTERAÇÕES
+		cdao.select();
+		
+		
 
-		admin.setCredencial("A");
-		admin.setNome("Basualdo");
-		admin.setEmail("basualdo@email.com");
-		admin.setId(123456);		
-		cadastro.setAdmin(admin);	
 		
-		filme.setAno(2024);
-		filme.setBilheteria(100000);
-		filme.setDuracao(3.50D);
-		filme.setNota(10);
-		filme.setTitulo("Deadpool e Wolverine");		
-		cadastro.setFilme(filme);		
 		
-		serie.setAno(2022);
-		serie.setTemporada(6);
-		serie.setEpisodios(65);
-		serie.setNota(6);
-		serie.setTitulo("Cobra Kai");		
-		cadastro.setSerie(serie);
 		
-		//Executando o método de insert de CadastroDA.
-		cdao.insert(cadastro);
 		
-		//Criando um List para recuperar o banco e mostrar no console.
-		List<Cadastro> banco = null;
+//
+//		admin.setCredencial("A");
+//		admin.setNome("Basualdo");
+//		admin.setEmail("basualdo@email.com");
+//		admin.setId(123456);		
+//		cadastro.setAdmin(admin);	
+//		
+//		filme.setAno(2024);
+//		filme.setBilheteria(100000);
+//		filme.setDuracao(3.50D);
+//		filme.setNota(10);
+//		filme.setTitulo("Deadpool e Wolverine");		
+//		cadastro.setFilme(filme);		
+//		
+//		serie.setAno(2022);
+//		serie.setTemporada(6);
+//		serie.setEpisodios(65);
+//		serie.setNota(6);
+//		serie.setTitulo("Cobra Kai");		
+//		cadastro.setSerie(serie);
 		
-		//Executando o método select e retornando a lsita de cadastro para o banco local.
-		banco = cdao.select();
+//		//Executando o método de insert de CadastroDA.
+//		cdao.insert(cadastro);
+		
+//		//Criando um List para recuperar o banco e mostrar no console.
+//		List<Cadastro> banco = null;
+		
+//		//Executando o método select e retornando a lsita de cadastro para o banco local.
+//		banco = cdao.select();
 		
 //		cad = cdao.select(2);
 //		
@@ -148,6 +171,10 @@ public class Teste {
 //		} else {
 //			System.out.println("Registro não encontrado!");
 //		}
+		
+		
+		
+
 
 	}
 

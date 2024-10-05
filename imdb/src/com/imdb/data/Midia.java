@@ -40,7 +40,7 @@ public class Midia {
 		}
 
 
-		public void setNota(double nota) {
+		public void Atualize(double nota) {
 			this.nota = nota;
 		}
 

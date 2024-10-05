@@ -4,6 +4,7 @@ public class Serie extends Midia{
 	
 	private int temporada;
 	private int episodios;
+	private double nota;
 	
 	public Serie() {
 		super();
@@ -24,6 +25,14 @@ public class Serie extends Midia{
 
 	public void setEpisodios(int episodios) {
 		this.episodios = episodios;
+	}
+
+	public void setNota(double nota) {
+		this.nota = nota;
+	}
+	
+	public double getNota() {
+		return nota;
 	}
 	
 	

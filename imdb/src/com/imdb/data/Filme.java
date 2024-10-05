@@ -4,6 +4,7 @@ public class Filme extends Midia{
 	
 	private int bilheteria;
 	private double duracao;
+	private double nota;
 	
 	public Filme() {
 		super();
@@ -25,6 +26,15 @@ public class Filme extends Midia{
 	public void setDuracao(double duracao) {
 		this.duracao = duracao;
 	}
+
+	public void setNota(double nota) {
+		this.nota = nota;
+	}
+	
+	public double getNota() {
+		return nota;
+	}
+	
 
 	
 	
