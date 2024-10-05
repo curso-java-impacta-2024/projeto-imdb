@@ -24,15 +24,16 @@ public class Manipulacao {
 		
 		int opt = 0;
 		CadastroDAO cdao;
+		Cadastro cadastro;
 		
 		while(key) {
 			
 			System.out.println("BEM VINDO AO SISTEMA DE GERENCIAMENTO");
 			System.out.println("\nEscolha uma das opções abaixo:");
-			System.out.println("\n - Listar Dados:");
-			System.out.println("\n - Cadastrar:");
-			System.out.println("\n - Atualizar:");
-			System.out.println("\n - Excluir:");
+			System.out.println("\n [1]- Listar Dados:");
+			System.out.println("\n [2]- Cadastrar:");
+			System.out.println("\n [3]- Atualizar:");
+			System.out.println("\n [4]- Excluir:");
 			
 			opt = Integer.parseInt(scan.next());
 			
@@ -46,7 +47,7 @@ public class Manipulacao {
 			case 2:
 				cdao = new CadastroDAO();
 				
-				Cadastro cadastro = new Cadastro();
+				cadastro = new Cadastro();
 				Admin admin = new Admin();
 				Filme filme = new Filme();
 				Serie serie = new Serie();
@@ -60,33 +61,104 @@ public class Manipulacao {
 				
 				System.out.println("Digite o ano do filme: ");
 				filme.setAno(Integer.parseInt(scan.next()) );
+				
 				System.out.println("\n Digite a bilheteria: ");
 				filme.setBilheteria(Integer.parseInt(scan.next()));
+				
 				System.out.println("\n Digite a duração:");
 				filme.setDuracao(Double.parseDouble(scan.next()));
+				
 				System.out.println("\n Digite a nota do filme:");
 				filme.setNota(Integer.parseInt(scan.next()));
+				
 				System.out.println("\n Digite o titulo do filme:");
 				filme.setTitulo(scan.next());
+				
 				cadastro.setFilme(filme);
 
 				System.out.println("Digite o ano da Série: ");
 				serie.setAno(Integer.parseInt(scan.next()));
+				
 				System.out.println("\nDigite a quantidade de Temporadas: ");
 				serie.setTemporada(Integer.parseInt(scan.next()));
+				
 				System.out.println("\nDigite a quantidade de Episódios: ");
 				serie.setEpisodios(Integer.parseInt(scan.next()));
+				
 				System.out.println("\nDigite a nota da Serie: ");
 				serie.setNota(Integer.parseInt(scan.next()));
+				
 				System.out.println("\nDigite o titulo da serie: ");
 				serie.setTitulo(scan.next());
 				
 				cadastro.setSerie(serie);
 
+				// Executando ométodo deinsert de CadastroDAO
+				cdao.insert(cadastro);
+				
+				break;
+				
+			case 3:
+				cdao = new CadastroDAO();
+				cadastro = new Cadastro();
+				
+				//Listando os itens
+				cdao.select();
+				// Solicitando o usuário que escolha um item
+				
+				
+				System.out.println("Selecione um dos itens acima para realizar a atualização: ");
+				cadastro = cdao.select( Integer.parseInt(scan.next()));
+				
+				//Apresentando ao usuário a escolha dele
+
+				System.out.println("\n************** SUA ESCOLHA***************");
+				System.out.println("\n**********Item:["+ cadastro.getId() + "]**********");
+				System.out.println("Nome do admin: " + cadastro.getAdmin().getNome());
+				System.out.println("Nome do filme" + cadastro.getFilme().getTitulo());
+				System.out.println("Nota do filme" + cadastro.getFilme().getNota());
+				System.out.println("Nome da serie" + cadastro.getFilme().getTitulo());
+				System.out.println("Nota da serie" + cadastro.getFilme().getNota());
+				System.out.println("*********************************\n");
+				
+				
+				
+				System.out.println("Atualize ano do filme: ");
+				cadastro.getFilme().setAno(Integer.parseInt(scan.next()) );
+				
+				System.out.println("\n Digite a bilheteria: ");
+				cadastro.getFilme().setBilheteria(Integer.parseInt(scan.next()));
+				
+				System.out.println("\n Digite a nota do filme:");
+				cadastro.getFilme().setNota(Integer.parseInt(scan.next()));
+				
+				System.out.println("\n Digite o titulo do filme:");
+				cadastro.getFilme().setTitulo(scan.next());
+				
+
+				System.out.println("\nAtualize o ano da Série: ");
+				cadastro.getSerie().setAno(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a quantidade de Temporadas: ");
+				
+				cadastro.getSerie().setTemporada(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a quantidade de Episódios: ");
+				
+				cadastro.getSerie().setEpisodios(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize a nota da Serie: ");
+				
+				cadastro.getSerie().setNota(Integer.parseInt(scan.next()));
+				System.out.println("\nAtualize o titulo da serie: ");
+				
+				cadastro.getSerie().setTitulo(scan.next());
+				
+		
 
 				// Executando ométodo deinsert de CadastroDAO
 				cdao.insert(cadastro);
 				
+				
+				
+				break;
 				
 				
 				

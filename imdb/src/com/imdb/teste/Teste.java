@@ -102,13 +102,45 @@ public class Teste {
 		
 		
 		CadastroDAO cdao = new CadastroDAO();
-		Cadastro cadastro = new Cadastro();
+		Cadastro cadastro = null;
 		Admin admin = new Admin();
 		Filme filme = new Filme();
 		Serie serie = new Serie();
 		
+		
+		// Imprimindo a lista de dados para ver como estava antes
+		
+		cdao.select();
+		
+		
+		//Recuperando um objeto para EDITAR através do método select(id)
+
+		cadastro = cdao.select(2);
+		
+		// Criando o filme
+		cadastro.getFilme().setAno(2020);	
+		cadastro.getFilme().setBilheteria(10000);
+		cadastro.getFilme().setDuracao(3.50D);
+		cadastro.getFilme().setNota(10);
+		cadastro.getFilme().setTitulo("DeadPool ");
+		
+		// Chamando o método UPTADE e inserindo o objeto cadastro alterado
+				
+		
+		cdao.update(cadastro);
+		
+		// Imprimindo a lista de dados para conferir as alterações  
+		
+		
+		cdao.select();
+		
+		
+		
+		
+		
+		
 		//Criando o Administrador
-		admin.setCredencial("A");
+		/*admin.setCredencial("A");
 		admin.setNome("Basualdo");
 		admin.setEmail("basualdo@email.com");
 		admin.setId(123456);
@@ -138,6 +170,19 @@ public class Teste {
 		
 		
 		banco = cdao.select();
+		*/
+		
+		
+		// Atualização
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -178,6 +223,11 @@ public class Teste {
 			System.out.println("Registro não encontrado!");
 			
 		}*/
+		
+		
+		
+
+		
 		
 		
 		
