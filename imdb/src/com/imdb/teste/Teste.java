@@ -16,7 +16,7 @@ public class Teste {
 	public static void main(String[] args) {
 
 		//Instance
-		Cadastro cadastro = new Cadastro();
+		//Cadastro cadastro = new Cadastro();
 		Admin admin = new Admin();
 		admin.setNome("Mari");
 		admin.setEmail("mari@mari.com");
@@ -44,7 +44,7 @@ public class Teste {
 //		nome[1] = "janu";
 //		nome[2] = "jackson";
 //		
-//		ArrayList<String> al = new ArrayList<String>();
+//		ArrayList<String> al = new ArrayList<String>(); nesse nao tem posicoes fixas
 //		al.add("mari");
 //		al.add("janu");
 //		
@@ -53,23 +53,23 @@ public class Teste {
 //		
 //		//================================================
 //		
-		cadastro = new Cadastro();
-		cadastro.setAdmin(admin);
+		//cadastro = new Cadastro();
+		//cadastro.setAdmin(admin);
 		
-		filme = new Filme();
-		filme.setTitulo("Meu Malvado favorito");
-		filme.setAno(2020);
-		filme.setBilheteria(10000000);
-		filme.setNota(9);
-		filme.setDuracao(2.30D);
-		cadastro.setFilme(filme);
-		
-		serie = new Serie();
-		serie.setTitulo("Bridgerton");
-		serie.setAno(2023);
-		serie.setTemporada(8);
-		serie.setEpisodios(73);
-		cadastro.setSerie(serie);
+//		filme = new Filme();
+//		filme.setTitulo("Meu Malvado favorito");
+//		filme.setAno(2020);
+//		filme.setBilheteria(10000000);
+//		filme.setNota(9);
+//		filme.setDuracao(2.30D);
+//		cadastro.setFilme(filme);
+//		
+//		serie = new Serie();
+//		serie.setTitulo("Bridgerton");
+//		serie.setAno(2023);
+//		serie.setTemporada(8);
+//		serie.setEpisodios(73);
+//		cadastro.setSerie(serie);
 //		
 //		lista.add(cadastro);
 //		
@@ -93,7 +93,7 @@ public class Teste {
 //			System.out.println("************************************************");
 //		}
 	
-		CadastroDAO cdao = new CadastroDAO();
+//		CadastroDAO cdao = new CadastroDAO();
 //		Cadastro cad = new Cadastro();
 		
 		//METODO SELECT PARAR RECUPERAR INFO DO "BANCO"
@@ -108,12 +108,38 @@ public class Teste {
 		
 		//METODO INSERT / CADASTRAR NOVO OBJETO NO "BANCO"
 		
-		cdao.insert(cadastro);
-		// cria uma lista 
-		List<Cadastro> banco = null;
+//		cdao.insert(cadastro);
+//		// cria uma lista 
+//		List<Cadastro> banco = null;
+//		
+//		//executa o select para verificar se foi adicionado
+//		banco = cdao.select();
+//		
 		
-		//executa o select para verificar se foi adicionado
-		banco = cdao.select();
+		// METODO UPDATE
+		CadastroDAO cdao = new CadastroDAO();
+		
+		//imprimindo a lista 
+		cdao.select();
+		
+		
+		//recuperando o objeto para Editar
+		Cadastro cadastro = cdao.select(3);
+		
+		//atualizando Filme
+		cadastro.getFilme().setTitulo("Lady Bugada");
+		cadastro.getFilme().setAno(2020);
+		cadastro.getFilme().setBilheteria(10000000);
+		cadastro.getFilme().setNota(3);
+		cadastro.getFilme().setDuracao(2.3D);
+		
+		//chamando o metodo update
+		cdao.update(cadastro);
+		
+		//imprimindo a lista para conferir alteracoes
+		cdao.select();
+						
+		
 		
 	}
 

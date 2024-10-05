@@ -149,6 +149,9 @@ public class CadastroDAO {
 	
 	// menu 2 - cadastrar
 	public boolean insert(Cadastro cadastro) {
+
+		
+		
 		
 		int idCadastro = 0;
 		int idFilme = 0;
@@ -169,4 +172,20 @@ public class CadastroDAO {
 		return true;
 		
 	}
+
+
+	public boolean update(Cadastro cadastro) {
+		
+		for(int x = 0; x < banco.size(); x++) {
+			if(banco.get(x).getId() == cadastro.getId()) {
+				banco.set(x, cadastro);
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+
+
 }
